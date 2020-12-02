@@ -1,4 +1,4 @@
 class Person < ActiveRecord::Base
-    #has_many :gifts
-   # has_many :gifts, through: :users
+    belongs_to :user
+    has_many :gifts, through: :users
 end 
