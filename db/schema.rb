@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_02_075821) do
+ActiveRecord::Schema.define(version: 2020_12_02_200629) do
+
+  create_table "gifts", force: :cascade do |t|
+    t.string "name"
+    t.string "type"
+    t.string "cost"
+    t.string "notes"
+    t.integer "user_id"
+    t.integer "person_id"
+  end
 
   create_table "people", force: :cascade do |t|
     t.string "name"
