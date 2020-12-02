@@ -1,12 +1,12 @@
  <%= form_tag people_path do %>
     <%= label_tag "Name" %>
-    <%= text_field_tag :name%><br><br>
+    <%= text_field_tag 'person[:name]' %><br><br>
     <%= label_tag "Relationship" %>
-    <%= text_field_tag :relationship%><br><br>
+    <%= text_field_tag 'person[:relationship]' %><br><br>
     <%= label_tag "Nice Rating" %>
-    <%= text_field_tag :nice_rating%><br><br>
+    <%= text_field_tag 'person[:nice_rating]' %><br><br>
     <%= label_tag "Naughty Rating" %>
-    <%= text_field_tag :naughty_rating%><br><br>
+    <%= text_field_tag 'person[:naughty_rating]' %><br><br>
 
     <%= submit_tag "Submit" %>
   <% end %>
