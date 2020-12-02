@@ -1,6 +1,7 @@
 class PeopleController < ApplicationController
 
     def index
+      #binding.pry
       @people = Person.all
     end 
 
@@ -9,6 +10,7 @@ class PeopleController < ApplicationController
     end 
 
     def create
+     # binding.pry
       @person = Person.new
       if @person.save
         redirect_to people_path
@@ -18,13 +20,13 @@ class PeopleController < ApplicationController
     end 
 
     def show
-      @person = person.find_by(id: params[:id])
+      @person = Person.find_by(id: params[:id])
     end 
 
     private
 
     def person_params
-      params.require(:nice_list).permit(:name, :relationship, :nice_rating, :naughty_rating)
+      params.require(:person).permit(:name, :relationship, :nice_rating, :naughty_rating)
     end 
 
 end

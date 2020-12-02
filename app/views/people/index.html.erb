@@ -1,7 +1,10 @@
-Profile Page?
 
-<% @people.each do |nl| %>
-  <%= nl.name %>
-  <%= nl.relationship %>
-  <%= nl.nice_rating %>
+<ul>
+<h3> Nice List </h3>
+<% @people.each do |p| %>
+  <%= link_to p.name, person_path(p.id) %><br>
+  <%= p.relationship %><br>
+  <%= p.nice_rating %><br>
+  <%= p.naughty_rating %><br><br>
 <% end %>
+</ul>
