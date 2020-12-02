@@ -13,6 +13,9 @@
 ActiveRecord::Schema.define(version: 2020_12_02_062156) do
 
   create_table "nice_lists", force: :cascade do |t|
+    t.string "name"
+    t.string "relationship"
+    t.integer "nice_rating"
   end
 
   create_table "users", force: :cascade do |t|

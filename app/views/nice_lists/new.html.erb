@@ -1,0 +1,10 @@
+ <%= form_tag '/nice_lists' do %>
+    <%= label_tag "Name" %>
+    <%= text_field_tag :name%><br><br>
+    <%= label_tag "Relationship" %>
+    <%= text_field_tag :relationship%><br><br>
+    <%= label_tag "Nice Rating" %>
+    <%= text_field_tag :nice_rating%><br><br>
+
+    <%= submit_tag "Submit" %>
+  <% end %>
