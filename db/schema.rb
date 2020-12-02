@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_02_060550) do
+ActiveRecord::Schema.define(version: 2020_12_02_062156) do
+
+  create_table "nice_lists", force: :cascade do |t|
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false

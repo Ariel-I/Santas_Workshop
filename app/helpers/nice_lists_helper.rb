@@ -1,0 +1,2 @@
+module NiceListsHelper
+end

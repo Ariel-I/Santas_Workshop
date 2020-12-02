@@ -1,0 +1,6 @@
+class CreateNiceList < ActiveRecord::Migration[6.0]
+  def change
+    create_table :nice_lists do |t|
+    end
+  end
+end

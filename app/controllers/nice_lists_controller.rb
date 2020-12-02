@@ -1,0 +1,2 @@
+class NiceListsController < ApplicationController
+end
