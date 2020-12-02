@@ -7,7 +7,7 @@
       <li><%= link_to 'Login', new_user_session_path %> </li>
     <% else %>
       <li><%= link_to 'Logout', destroy_user_session_path, method: "delete" %> </li> <br>
-      <li><%= link_to 'Profile', nice_lists_path %><br><br>
+      <li><%= link_to 'Profile', people_path %><br><br>
       <li>Welcome <%= current_user.username %>
     <% end %>
     </ul>
