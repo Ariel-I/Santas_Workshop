@@ -1,14 +1,15 @@
 <nav>
   <ul>
-    <li><%= link_to 'Home', root_path %> </li>
+  <h1>Santas Workshop</h1>
+    <%= link_to 'Home', root_path %> 
     
     <% if !user_signed_in? %> 
-      <li><%= link_to 'Signup', new_user_registration_path %> </li>
-      <li><%= link_to 'Login', new_user_session_path %> </li>
+      <%= link_to 'Signup', new_user_registration_path %> 
+      <%= link_to 'Login', new_user_session_path %> 
     <% else %>
-      <li><%= link_to 'Logout', destroy_user_session_path, method: "delete" %> </li> <br>
-      <li><%= link_to 'Profile', people_path %><br><br>
-      <li>Welcome <%= current_user.username %>
+      <%= link_to 'Logout', destroy_user_session_path, method: "delete" %>
+      <%= link_to 'Profile', people_path %><br><br>
+      Welcome <%= current_user.username %>
     <% end %>
     </ul>
 </nav>
