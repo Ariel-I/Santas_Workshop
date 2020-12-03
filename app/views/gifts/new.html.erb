@@ -1,11 +1,21 @@
 <h2>Create a New Gift</h2>
 
 <%= form_for @gift do |f| %>
-  <%= f.label :name %>
+<div>
+  <%= f.fields_for :person, @gift.build_person do |p| %>
+    <%= f.label "who is this gift for?" %>
+    <%= f.text_field :name %>
+    
+  <% end %>
+</div>
+<br>
+
+
+  <%= f.label :gift_name %>
   <%= f.text_field :name %><br><br>
-  <%= f.label :type %>
+  <%= f.label :gift_type %>
   <%= f.text_field :type %><br><br>
-  <%= f.label :cost %>
+  <%= f.label :gift_cost %>
   <%= f.text_field :cost %><br><br>
   <%= f.label :notes %>
   <%= f.text_field :notes %><br><br>

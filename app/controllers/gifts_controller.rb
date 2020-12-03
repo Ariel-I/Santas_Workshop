@@ -10,7 +10,7 @@ class GiftsController < ApplicationController
     end 
 
     def create
-      #  binding.pry
+        binding.pry
       @gift = current_user.gifts.build(gift_params)
       if @gift.save
         redirect_to gift_path(@gift)
@@ -26,7 +26,7 @@ class GiftsController < ApplicationController
     private
     
     def gift_params
-      params.require(:gift).permit(:name, :type, :cost, :notes, 
+      params.require(:gift).permit(:name, :type, :cost, :notes, :person_id,
         person_attributes: [
           :name,
           :relationship
