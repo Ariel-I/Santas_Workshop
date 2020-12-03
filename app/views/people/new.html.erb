@@ -1,14 +1,22 @@
  <h2> Add to your nice list </h2>
- 
+
  <%= form_for @person do |f| %>
     <%= f.label "Name" %>
     <%= f.text_field :name %><br><br>
     <%= f.label "Relationship" %>
     <%= f.text_field :relationship %><br><br>
-    <%= f.label "Nice Rating" %>
-    <%= f.text_field :nice_rating %><br><br>
-    <%= f.label "Naughty Rating" %>
-    <%= f.text_field :naughty_rating %><br><br>
-
+    <div>
+      <h3>Create Gift<h3>
+      <%= f.fields_for :gifts do |gift_form| %>
+        <%= gift_form.label :name %>
+        <%= gift_form.text_field :name %>
+        <%= gift_form.label :type %>
+        <%= gift_form.text_field :type %>
+        <%= gift_form.label :cost %>
+        <%= gift_form.text_field :cost %>
+        <%= gift_form.label :notes %>
+        <%= gift_form.text_field :notes %>
+      <% end %>
+    </div>
     <%= f.submit "Submit" %>
 <% end %>

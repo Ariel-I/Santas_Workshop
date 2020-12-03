@@ -8,10 +8,11 @@ class PeopleController < ApplicationController
 
     def new
       @person = current_user.people.new
+      @person.gifts.build
     end 
 
     def create 
-      binding.pry
+      #binding.pry
       @person = current_user.people.build(person_params)
       if @person.save
         redirect_to people_path(@person)
@@ -32,7 +33,14 @@ class PeopleController < ApplicationController
     private
 
     def person_params
-      params.require[:person].permit(:name, :relationship, :nice_rating, :naughty_rating)
+      params.require[:person].permit(:name, :relationship,
+        gifts_attributes: [
+         :name,
+         :type,
+         :cost,
+         :notes
+        ]
+      )
     end 
 
 end
