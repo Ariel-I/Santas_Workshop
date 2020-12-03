@@ -1,16 +1,15 @@
 <nav>
   <ul>
   <h1>Santas Workshop</h1>
-    <%= link_to 'Home', root_path %> 
+    <%= link_to '<button type="button">Home</button>'.html_safe, root_path %>
     
     <% if !user_signed_in? %> 
-      <%= link_to 'Signup', new_user_registration_path %> 
-      <%= link_to 'Login', new_user_session_path %> 
+      <%= link_to '<button type="button">Signup</button>'.html_safe, new_user_registration_path %>
+      <%= link_to '<button type="button">Login</button>'.html_safe, new_user_session_path %>
     <% else %>
-      <%= link_to 'Logout', destroy_user_session_path, method: "delete" %>
-      <%= link_to 'Profile', people_path %>
+      <%= link_to '<button type="button">Logout</button>'.html_safe, destroy_user_session_path, method: "delete" %>
+      <%= link_to '<button type="button">Profiel</button>'.html_safe, people_path %>
       <%= link_to 'Create New Person', new_person_path %>
-      <%= link_to 'Create New Gift', new_gift_path %><br><br>
       Welcome <%= current_user.username %>
     <% end %>
     </ul>
