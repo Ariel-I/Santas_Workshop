@@ -1,0 +1,9 @@
+<%= link_to "Create New Gift", new_gift_path%>
+
+<% @gifts. each do |g| %>
+  <%= g.name %>
+  <%= g.type %>
+  <%= g.cost %>
+  <%= g.notes %>
+<% end %>
+

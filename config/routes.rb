@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   end 
 
   resources :people, only: [:index, :new, :create, :show]
+  resources :gifts, only: [:index, :new, :create, :show]
 end

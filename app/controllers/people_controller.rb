@@ -5,14 +5,14 @@ class PeopleController < ApplicationController
     end 
 
     def new
-      @person = Person.new(person_params) 
     end 
 
-    def create
-     # binding.pry  
-      @person = Person.create(person_params)
+    def create 
+      #binding.pry
+      @person = Person.new(person_params)
+    
       if @person.save
-        redirect_to people_path(@person)
+        redirect_to people_path
       else
         redirect_to new_person_path
       end 
@@ -22,13 +22,9 @@ class PeopleController < ApplicationController
       @person = Person.find_by(id: params[:id])
     end 
 
-    def edit
-    end
-
-    def update
-    end 
-
     def destroy
+      @person = Person.find_by(id: params[:id])
+      @person.destroy
     end 
 
     private

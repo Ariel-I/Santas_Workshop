@@ -1,0 +1,14 @@
+<h2>Create a New Gift</h2>
+
+<%= form_for @gift do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br><br>
+  <%= f.label :type %>
+  <%= f.text_field :type %><br><br>
+  <%= f.label :cost %>
+  <%= f.text_field :cost %><br><br>
+  <%= f.label :notes %>
+  <%= f.text_field :notes %><br><br>
+
+  <%= f.submit "Create Gift" %>
+<% end %>
