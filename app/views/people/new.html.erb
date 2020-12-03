@@ -5,18 +5,6 @@
     <%= f.text_field :name %><br><br>
     <%= f.label "Relationship" %>
     <%= f.text_field :relationship %><br><br>
-    <div>
-      <h3>Create Gift<h3>
-      <%= f.fields_for :gifts do |gift_form| %>
-        <%= gift_form.label :name %>
-        <%= gift_form.text_field :name %>
-        <%= gift_form.label :type %>
-        <%= gift_form.text_field :type %>
-        <%= gift_form.label :cost %>
-        <%= gift_form.text_field :cost %>
-        <%= gift_form.label :notes %>
-        <%= gift_form.text_field :notes %>
-      <% end %>
-    </div>
+   
     <%= f.submit "Submit" %>
 <% end %>

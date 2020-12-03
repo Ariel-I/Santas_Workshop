@@ -9,7 +9,6 @@
     <% else %>
       
       <%= link_to '<button type="button">Logout</button>'.html_safe, destroy_user_session_path, method: "delete" %>
-      <%= link_to '<button type="button">Profile</button>'.html_safe, people_path %>
       <h2>Hello<%= current_user.username %> </h2>
       <br><br>
     <% end %>

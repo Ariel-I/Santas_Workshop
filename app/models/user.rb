@@ -6,8 +6,9 @@ class User < ApplicationRecord
 
   validates :username, :email, uniqueness: true 
 
-  has_many :people
-  has_many :gifts, through: :people
+  has_many :gifts
+  has_many :people, through: :gifts
+
   #accepts_nested_attributes_for :people 
 
   def self.from_omniauth(auth)

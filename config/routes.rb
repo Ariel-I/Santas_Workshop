@@ -7,9 +7,7 @@ Rails.application.routes.draw do
     get 'signup', to: 'devise/registrations#new', as: 'signup'
   end 
 
-  resources :gifts
-  resources :people, only: [:index, :new, :create, :show] do
-    resources :gifts, only: [:new, :show]
-  end 
-  
+ 
+  resources :people, only: [:index, :new, :create, :show] 
+  resources :gifts, only: [:index, :new, :create, :show]
 end
