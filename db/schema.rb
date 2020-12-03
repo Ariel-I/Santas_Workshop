@@ -24,8 +24,6 @@ ActiveRecord::Schema.define(version: 2020_12_02_200629) do
   create_table "people", force: :cascade do |t|
     t.string "name"
     t.string "relationship"
-    t.string "nice_rating"
-    t.string "naughty_rating"
     t.integer "user_id"
   end
 

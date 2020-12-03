@@ -1,5 +1,7 @@
 class PeopleController < ApplicationController
 
+    before_action :redirect 
+
     def index
       @people = current_user.people.all
     end 
