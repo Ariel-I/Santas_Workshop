@@ -1,18 +1,18 @@
 class GiftsController < ApplicationController
 
     def index
-      @gifts = Gift.all 
+      @gifts = current_user.gifts.all 
     end 
 
     def new
-      @gift = Gift.new
+      @gift = current_user.gifts.new
     end 
 
     def create
         binding.pry
-      @gift = Gift.new(gift_params)
+      @gift = current_user.gifts.build(gift_params)
       if @gift.save
-        redirect_to gift_path
+        redirect_to gift_path(@gift)
       else
         redirect_to new_gift_path
       end 

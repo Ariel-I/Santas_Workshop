@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2020_12_02_200629) do
     t.string "relationship"
     t.string "nice_rating"
     t.string "naughty_rating"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|

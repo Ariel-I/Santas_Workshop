@@ -1,18 +1,18 @@
 class PeopleController < ApplicationController
 
     def index
-      @people = Person.all
+      @people = current_user.people.all
     end 
 
     def new
+      @person = current_user.people.new
     end 
 
     def create 
-      #binding.pry
-      @person = Person.new(person_params)
-    
+      binding.pry
+      @person = current_user.people.build(person_params)
       if @person.save
-        redirect_to people_path
+        redirect_to people_path(@person)
       else
         redirect_to new_person_path
       end 
