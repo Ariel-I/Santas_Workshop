@@ -25,6 +25,7 @@ gem 'devise'
 gem 'omniauth-github'
 gem 'pry'
 gem 'dotenv-rails'
+gem 'bootstrap-sass'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

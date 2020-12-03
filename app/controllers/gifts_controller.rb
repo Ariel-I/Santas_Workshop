@@ -5,7 +5,7 @@ class GiftsController < ApplicationController
     end 
 
     def new
-      @gift = current_user.gifts.new
+      @gift = Gift.new
     end 
 
     def create

@@ -8,7 +8,9 @@
       <%= link_to 'Login', new_user_session_path %> 
     <% else %>
       <%= link_to 'Logout', destroy_user_session_path, method: "delete" %>
-      <%= link_to 'Profile', people_path %><br><br>
+      <%= link_to 'Profile', people_path %>
+      <%= link_to 'Create New Person', new_person_path %>
+      <%= link_to 'Create New Gift', new_gift_path %><br><br>
       Welcome <%= current_user.username %>
     <% end %>
     </ul>
