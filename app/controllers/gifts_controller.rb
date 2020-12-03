@@ -1,12 +1,12 @@
 class GiftsController < ApplicationController
+    before_action :redirect
 
     def index
       @gifts = current_user.gifts.all 
     end 
 
     def new
-      @gift = Gift.new
-      @gift.people.build
+      @gift = current_user.gifts.new(person_id: params[:person_id])
     end 
 
     def create
@@ -20,13 +20,18 @@ class GiftsController < ApplicationController
     end 
 
     def show 
-      @gift = Gift.find_by(id: params[:id])
+      @gift = current_user.gifts.find_by(id: params[:id])
     end 
 
     private
     
     def gift_params
-      params.require[:gift].permit(:name, :type, :cost, :notes)
+      params.require(:gift).permit(:name, :type, :cost, :notes, 
+        person_attributes: [
+          :name,
+          :relationship
+        ]
+      )
     end 
 
 end 
