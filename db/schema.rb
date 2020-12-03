@@ -14,7 +14,6 @@ ActiveRecord::Schema.define(version: 2020_12_02_200629) do
 
   create_table "gifts", force: :cascade do |t|
     t.string "name"
-    t.string "type"
     t.string "cost"
     t.string "notes"
     t.integer "user_id"
