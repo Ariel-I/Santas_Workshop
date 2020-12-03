@@ -6,10 +6,11 @@ class GiftsController < ApplicationController
 
     def new
       @gift = Gift.new
+      @gift.people.build
     end 
 
     def create
-        binding.pry
+      #  binding.pry
       @gift = current_user.gifts.build(gift_params)
       if @gift.save
         redirect_to gift_path(@gift)

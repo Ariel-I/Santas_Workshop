@@ -1,11 +1,10 @@
-<h1>All Gifts</h1>
+<h2>All Gifts:</h2>
 
+<h3>Don't see a gift you like?!</h3>
 <%= link_to "Create New Gift", new_gift_path%>
 
 <% @gifts. each do |g| %>
   <%= g.name %>
-  <%= g.type %>
   <%= g.cost %>
-  <%= g.notes %>
 <% end %>
 
