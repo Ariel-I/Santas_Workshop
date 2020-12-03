@@ -1,4 +1,6 @@
- <%= form_for(@person) do |f| %>
+ <h2> Add to your nice list </h2>
+ 
+ <%= form_for @person do |f| %>
     <%= f.label "Name" %>
     <%= f.text_field :name %><br><br>
     <%= f.label "Relationship" %>
@@ -9,4 +11,4 @@
     <%= f.text_field :naughty_rating %><br><br>
 
     <%= f.submit "Submit" %>
-  <% end %>
+<% end %>
