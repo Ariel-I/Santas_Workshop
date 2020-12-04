@@ -1,1 +1,11 @@
-hello gifts
+
+Gift for: <%= @gift.person.name %><br>
+<%= @gift.name %> <br>
+<%= @gift.cost %><br>
+<%= @gift.notes %><br>
+
+
+<br>
+<%= link_to "Edit", edit_person_gift_path(@gift.person, @gift) %><br>
+<%= link_to "Delete Gift", @gift, method: :delete, data: { confirm: 'Are you sure?' }%><br>
+<%= link_to "Back", person_path(@gift.person) %>

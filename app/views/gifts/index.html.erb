@@ -1,10 +1,17 @@
-<h2>All Gifts:</h2>
 
-<h3></h3>
-<%= link_to "Create New Gift", new_gift_path%>
-
-<% @gifts. each do |g| %>
-  <%= g.name %>
-  <%= g.cost %>
+<% if params[:person_id] %>
+  <h2><%= @person.name %>'s Gifts </h2>
+  <%= link_to "Create New Gift", new_person_gift_path %><br><br>
+<% else %>
+  <h2> All Gifts:</h2>
 <% end %>
+
+<% @gifts.each do |g| %>
+  Link to --> <%= g.name %>
+  <%= g.cost %><br>
+<% end %>
+
+<br><br>
+
+
 

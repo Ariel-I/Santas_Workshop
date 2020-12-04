@@ -2,12 +2,14 @@
 
   <% if @gift.person_id.nil? %>
     <h4>Who is this gift for?</h4>
-    <%= f.collection_select(:person_id, Person.all, :id, :name, prompt: "Choose a person or create a new person below") %>
+    <%= f.collection_select(:person_id, current_user.people, :id, :name, prompt: "Choose a person or create a new person below") %>
     <br><br>
     <div>
-    <%= f.fields_for :person, Person.new do |p| %>
-      <%= f.label :name %>
-      <%= f.text_field :name %>
+    <%= f.fields_for :person, @gift.build_person do |p| %>
+      <%= p.label :name %>
+      <%= p.text_field :name %>
+      <%= p.label :relationship %>
+      <%= p.text_field :relationship %>
     <% end %>
     </div>
   <% else %>
@@ -22,5 +24,5 @@
   <%= f.label :notes %>
   <%= f.text_field :notes %><br><br>
 
-  <%= f.submit "Create Gift" %>
+  <%= f.submit "Add Gift" %>
 <% end %>

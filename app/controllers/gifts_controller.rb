@@ -3,7 +3,12 @@ class GiftsController < ApplicationController
     before_action :set_gift, only: [:show, :edit, :update, :destroy]
 
     def index
-      @gifts = current_user.gifts.all 
+      if params[:person_id]
+        @person = current_user.people.find_by(id: params[:person_id])
+        @gifts = @person.gifts
+      else
+        @gifts = current_user.gifts
+      end
     end 
 
     def new
@@ -12,7 +17,7 @@ class GiftsController < ApplicationController
 
     def create
       @gift = current_user.gifts.build(gift_params)
-      binding.pry
+      #binding.pry
       if @gift.save
         redirect_to gift_path(@gift)
       else
@@ -51,7 +56,7 @@ class GiftsController < ApplicationController
     end 
     
     def gift_params
-      params.require(:gift).permit(:name, :cost, :notes,
+      params.require(:gift).permit(:name, :cost, :notes, :person_id,
         person_attributes: [:name, :relationship])
     end 
 
