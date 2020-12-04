@@ -1,7 +1,4 @@
-class Person < ActiveRecord::Base
-    
+class Person < ApplicationRecord
     has_many :gifts
     has_many :users, through: :gifts
-
-    #accepts_nested_attributes_for :gifts 
 end 

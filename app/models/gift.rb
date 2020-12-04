@@ -1,4 +1,4 @@
-class Gift < ActiveRecord::Base
+class Gift < ApplicationRecord
     validates :name, :cost, :notes, presence: true
     belongs_to :user
     belongs_to :person 
