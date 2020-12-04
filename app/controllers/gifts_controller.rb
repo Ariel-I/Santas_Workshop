@@ -16,12 +16,28 @@ class GiftsController < ApplicationController
       if @gift.save
         redirect_to gift_path(@gift)
       else
-        redirect_to new_gift_path
+        render :new
       end 
     end 
 
     def show 
       @gift = current_user.gifts.find_by(id: params[:id])
+    end 
+
+    def edit
+    end
+
+    def update
+      if @gift.update(gift_params)
+        redirect_to gift_path(@gift) 
+      else 
+        render :edit 
+      end      
+    end 
+
+    def destroy
+      @gift.destroy
+      redirect gifts_path 
     end 
 
     private
