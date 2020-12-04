@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 2020_12_02_200629) do
   create_table "people", force: :cascade do |t|
     t.string "name"
     t.string "relationship"
-    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
