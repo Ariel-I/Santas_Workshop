@@ -2,7 +2,7 @@
 
   <% if @gift.person_id.nil? %>
     <h4>Who is this gift for?</h4>
-    <%= f.collection_select(:person_id, current_user.people, :id, :name, prompt: "Choose a person or create a new person below") %>
+    <%= f.collection_select(:person_id, current_user.people.uniq, :id, :name, prompt: "Choose a person or create a new person below") %>
     <br><br>
     <div>
     <%= f.fields_for :person, @gift.build_person do |p| %>

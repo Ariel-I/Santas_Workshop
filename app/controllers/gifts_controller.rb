@@ -8,7 +8,7 @@ class GiftsController < ApplicationController
         @gifts = @person.gifts
       elsif params[:search_term]
         if params[:search_term] = "expensive"
-          @gifts = current_user.gifts.expensive
+          @gifts = current_user.gifts.most_expensive_gift
         end 
       else
         @gifts = current_user.gifts
