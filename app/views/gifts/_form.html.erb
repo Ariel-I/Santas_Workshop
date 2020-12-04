@@ -1,12 +1,19 @@
 <%= form_for @gift do |f| %>
 
+  <%= f.label :gift_name %>
+  <%= f.text_field :name %><br><br>
+  <%= f.label :gift_cost %>
+  <%= f.text_field :cost %><br><br>
+  <%= f.label :notes %>
+  <%= f.text_field :notes %><br><br>
+
   <% if @gift.person_id.nil? %>
-    <%= f.collection_select(:person_id, Person.all, :id, :name, prompt: "Choose a person or create a new person") %>
-    <br>
-    <h4>Create New Lucky Gift Reciever</h4>
+    <h4>Who is this gift for?</h4>
+    <%= f.collection_select(:person_id, Person.all, :id, :name, prompt: "Choose a person or create a new person below") %>
+    <br><br>
     <div>
     <%= f.fields_for :person, Person.new do |p| %>
-      <%= f.label "who is this gift for?" %>
+      <%= f.label :name %>
       <%= f.text_field :name %>
     <% end %>
     </div>
@@ -15,12 +22,7 @@
   <%end%>
 <br>
 
-  <%= f.label :gift_name %>
-  <%= f.text_field :name %><br><br>
-  <%= f.label :gift_cost %>
-  <%= f.text_field :cost %><br><br>
-  <%= f.label :notes %>
-  <%= f.text_field :notes %><br><br>
+ 
 
   <%= f.submit "Create Gift" %>
 <% end %>
