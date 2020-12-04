@@ -3,7 +3,7 @@ class PeopleController < ApplicationController
     before_action :redirect 
 
     def index
-      @people = current_user.people
+      @people = current_user.people.uniq
     end 
 
 #    def new

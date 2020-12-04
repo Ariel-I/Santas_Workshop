@@ -6,6 +6,10 @@ class GiftsController < ApplicationController
       if params[:person_id]
         @person = current_user.people.find_by(id: params[:person_id])
         @gifts = @person.gifts
+      elsif params[:search_term]
+        if params[:search_term] = "expensive"
+          @gifts = current_user.gifts.expensive
+        end 
       else
         @gifts = current_user.gifts
       end
@@ -41,8 +45,10 @@ class GiftsController < ApplicationController
     end 
 
     def destroy
-      @gift.destroy
-      redirect gifts_path 
+      if @gift
+        @gift.destroy
+      end
+      redirect_to gifts_path 
     end 
 
     private
