@@ -6,7 +6,7 @@
 
 <h2> Getting started </h2>
 
--- You can find Santa's Workshop in the github repository git@github.com:Ariel-I/brewery_buddy.git --
+-- You can find Santa's Workshop in the github repository https://github.com/Ariel-I/santas_workshop --
 
 In order to properly run the program you must clone the github repository from the link provided above. After cloning the repo you will want to do the following; 
 
