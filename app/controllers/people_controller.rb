@@ -22,7 +22,12 @@ class PeopleController < ApplicationController
 #    end 
 
     def show
-      @person = Person.find_by(id: params[:id])
+      @person = current_user.people.find_by(id: params[:id])
+      if @person 
+        @gifts = current_user.gifts.where(person_id: params[:id])
+      else
+        redirect_to people_path
+      end 
     end 
 
 end
