@@ -2,17 +2,15 @@
 
 <%= form_for @gift do |f| %>
 
-  <% if @gift.person_id.nil? %>
+  <% if gift.person_id.nil? %>
 
     <h3>Create New Lucky Gift Reciever</h3>
     <div>
     <%= f.fields_for :person, @gift.build_person do |p| %>
       <%= f.label "who is this gift for?" %>
       <%= f.text_field :name %>
-      
     <% end %>
     </div>
-
   <% else %>
     <%= f.hidden_field :person_id  %>
   <%end%>

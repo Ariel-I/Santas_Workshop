@@ -1,5 +1,6 @@
 class GiftsController < ApplicationController
     before_action :redirect
+    before_action :set_gift, only: [:show, :edit, :update, :destroy]
 
     def index
       @gifts = current_user.gifts.all 
@@ -24,10 +25,18 @@ class GiftsController < ApplicationController
     end 
 
     private
+
+    def set_gift
+      @gift = current_user.gifts.find_by(id: params[:id])
+      if !@gift
+        flash[:error] = "I'm sorry, you don't have access to visit this page."
+        redirect_to gifts_path
+      end 
+    end 
     
     def gift_params
       params.require(:gift).permit(:name, :cost, :notes,
-        person_attributes: [:name,:relationship])
+        person_attributes: [:name, :relationship])
     end 
 
 end 
