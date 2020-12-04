@@ -1,0 +1,25 @@
+<%= form_for @gift do |f| %>
+
+  <% if @gift.person_id.nil? %>
+
+    <h3>Create New Lucky Gift Reciever</h3>
+    <div>
+    <%= f.fields_for :person, Person.new do |p| %>
+      <%= f.label "who is this gift for?" %>
+      <%= f.text_field :name %>
+    <% end %>
+    </div>
+  <% else %>
+    <%= f.hidden_field :person_id  %>
+  <%end%>
+<br>
+
+  <%= f.label :gift_name %>
+  <%= f.text_field :name %><br><br>
+  <%= f.label :gift_cost %>
+  <%= f.text_field :cost %><br><br>
+  <%= f.label :notes %>
+  <%= f.text_field :notes %><br><br>
+
+  <%= f.submit "Create Gift" %>
+<% end %>

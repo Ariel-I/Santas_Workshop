@@ -1,27 +1,13 @@
-<h2>Create a New Gift</h2>
-
-<%= form_for @gift do |f| %>
-
-  <% if gift.person_id.nil? %>
-
-    <h3>Create New Lucky Gift Reciever</h3>
-    <div>
-    <%= f.fields_for :person, @gift.build_person do |p| %>
-      <%= f.label "who is this gift for?" %>
-      <%= f.text_field :name %>
-    <% end %>
-    </div>
-  <% else %>
-    <%= f.hidden_field :person_id  %>
-  <%end%>
+<body>
+<% if @gift.errors.any? %>
+ 
+  <% @gift.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
 <br>
 
-  <%= f.label :gift_name %>
-  <%= f.text_field :name %><br><br>
-  <%= f.label :gift_cost %>
-  <%= f.text_field :cost %><br><br>
-  <%= f.label :notes %>
-  <%= f.text_field :notes %><br><br>
+<h2>Create a New Gift</h2>
+<%= render partial: "form", locales: {gift: @gift} %>
 
-  <%= f.submit "Create Gift" %>
-<% end %>
+</body>
