@@ -1,8 +1,9 @@
 <%= form_for @gift do |f| %>
 
   <% if @gift.person_id.nil? %>
-
-    <h3>Create New Lucky Gift Reciever</h3>
+    <%= f.collection_select(:person_id, Person.all, :id, :name, prompt: "Choose a person or create a new person") %>
+    <br>
+    <h4>Create New Lucky Gift Reciever</h4>
     <div>
     <%= f.fields_for :person, Person.new do |p| %>
       <%= f.label "who is this gift for?" %>
