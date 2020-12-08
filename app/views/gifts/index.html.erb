@@ -1,17 +1,16 @@
+<div class='container'>
+  <% if params[:person_id] %>
+    <h2><%= @person.name %>'s Gifts </h2>
+    <%= link_to "Create New Gift", new_person_gift_path %><br><br>
+  <% else %>
+    <h2> All Gifts:</h2>
+  <% end %>
 
-<% if params[:person_id] %>
-  <h2><%= @person.name %>'s Gifts </h2>
-  <%= link_to "Create New Gift", new_person_gift_path %><br><br>
-<% else %>
-  <h2> All Gifts:</h2>
-<% end %>
-
-<% @gifts.each do |g| %>
-  <%= link_to g.name, gift_path(g) %>
-  <%= g.cost %><br>
-<% end %>
-
-<br><br>
+  <% @gifts.each do |g| %>
+    <%= g.cost %>
+    <%= link_to g.name, gift_path(g) %><br>
+  <% end %>
+</div>
 
 
 
