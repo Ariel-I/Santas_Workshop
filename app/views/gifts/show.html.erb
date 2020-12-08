@@ -1,12 +1,13 @@
-<div class='container'>
-  <h3> Gift for: <%= @gift.person.name %><br></h3>
+<div class='background'>
+  <div class="transbox">
+    <h3> Gift for: <%= @gift.person.name %><br></h3>
     <ul>
       <%= @gift.name %> <br>
-      $<%= @gift.cost %><br>
+      <%= @gift.cost %><br>
       <%= @gift.notes %><br>
     </ul>
-
-<br>
-<%= link_to "Edit", edit_person_gift_path(@gift.person, @gift) %><br>
-<%= link_to "Delete Gift", @gift, method: :delete, data: { confirm: 'Are you sure?' }%><br>
+    <br>
+    <%= link_to "Edit", edit_person_gift_path(@gift.person, @gift) %><br>
+    <%= link_to "Delete Gift", @gift, method: :delete, data: { confirm: 'Are you sure?' }%><br>
+  </div>
 </div>

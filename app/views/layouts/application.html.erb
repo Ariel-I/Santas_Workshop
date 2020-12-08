@@ -3,8 +3,15 @@
 <html>
   <head>
     <title >Santa's Workshop</title>
+    
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
 
-    <style>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <style>
       html { 
         background: url("https://cdn.pixabay.com/photo/2017/10/26/19/45/christmas-2892235__480.png") no-repeat center center fixed; 
         -webkit-background-size: cover;
@@ -14,20 +21,30 @@
       }
 
       h1 {
+        text-align: left;
         color: #e6ffff;
         font-size: 4em;
         font-family: Georgia, 'Times New Roman', Times, serif;
       }
 
-      
-    </style>
-    
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+      div.background {
+        background: url(klematis.jpg) repeat;
+      }
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+      div.transbox {
+        margin: 30px;
+        background-color: #ffffff;
+        border: 1px solid black;
+       opacity: 0.6;
+      }
+
+      div.transbox p {
+       margin: 5%;
+       font-weight: bold;
+        color: #000000;
+      }
+  </style>
+
 
   <body>
     <%= render 'layouts/nav'%> 

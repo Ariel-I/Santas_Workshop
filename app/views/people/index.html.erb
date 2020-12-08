@@ -1,11 +1,12 @@
-<div class='container'>
-<h4> Begin by creating some new gifts for your loved ones! </h4>
-<p><%= link_to "Create New Gift", new_gift_path %> -- <%= link_to "See All Gifts", gifts_path %> -- <%= link_to "See Most Expensive Gift", 'gifts/search_term/:search_term' %></p>
-
-<ul>
-<h3> Nice List: </h3>
-<% @people.each do |p| %>
-  <%= link_to p.name, person_gifts_path(p) %><br>
-<% end %>
-</ul>
+<div class='background'>
+  <div class="transbox">
+    <h2> Begin by creating some new gifts for your loved ones!</h2>
+    <h4><%= link_to "Create New Gift", new_gift_path %> -- <%= link_to "See All Gifts", gifts_path %> -- <%= link_to "See Most Expensive Gift", 'gifts/search_term/:search_term' %></h4>
+    <ul>
+      <h3> My Nice List: </h3>
+      <% @people.each do |p| %>
+        <%= link_to p.name, person_gifts_path(p) %><br>
+      <% end %>
+    </ul>
+  </div>
 </div>
