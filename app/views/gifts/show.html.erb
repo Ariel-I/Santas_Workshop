@@ -1,10 +1,10 @@
 <div class='background'>
   <div class="transbox">
-    <h3> Gift for: <%= @gift.person.name %><br></h3>
+    <h3> Present for: <%= @gift.person.name %><br></h3>
     <ul>
-      <%= @gift.name %> <br>
-      <%= @gift.cost %><br>
-      <%= @gift.notes %><br>
+     <h4><%= @gift.name %><h4><br>
+      Cost $<%= @gift.cost %><br>
+      Notes: <%= @gift.notes %><br>
     </ul>
     <br>
     <%= link_to "Edit", edit_person_gift_path(@gift.person, @gift) %><br>

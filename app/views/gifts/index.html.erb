@@ -8,7 +8,7 @@
     <% end %>
 
     <% @gifts.each do |g| %>
-      <%= g.cost %>
+      $<%= g.cost %>
       <%= link_to g.name, gift_path(g) %><br>
     <% end %>
   </div>
