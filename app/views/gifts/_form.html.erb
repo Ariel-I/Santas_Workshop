@@ -1,28 +1,28 @@
 <div class='container'>
-    <%= form_for @gift do |f| %>
- 
-      <% if @gift.person_id.nil? %>
-        <h3>Who is this gift for?</h3>
-        <%= f.collection_select(:person_id, current_user.people.uniq, :id, :name, prompt: "Choose a person or create a new person below") %>
-        <br><br>
-    
-        <%= f.fields_for :person, @gift.build_person do |p| %>
-          <%= p.label 'Name' %>
-          <%= p.text_field :name %>
-        <% end %>
+  <%= form_for @gift do |f| %>
 
-      <% else %>
-        <%= f.hidden_field :person_id  %>
-      <%end%>
+    <% if @gift.person_id.nil? %>
+      <h3>Who is this gift for?</h3>
+      <%= f.collection_select(:person_id, current_user.people.uniq, :id, :name, prompt: "Choose a person or create a new person below") %>
       <br><br>
+    
+      <%= f.fields_for :person, @gift.build_person do |p| %>
+        <%= p.label 'Name' %>
+        <%= p.text_field :name %>
+      <% end %>
 
-      <%= f.label 'Gift Name' %>
-      <%= f.text_field :name %><br><br>
-      <%= f.label 'Cost $' %>
-      <%= f.text_field :cost %><br><br>
-      <%= f.label 'Notes' %>
-      <%= f.text_field :notes %><br><br>
+    <% else %>
+      <%= f.hidden_field :person_id  %>
+    <%end%>
+    <br><br>
 
-      <%= f.submit "Add Gift" %>
-    <% end %> 
-</div>
+    <%= f.label 'Gift Name' %>
+    <%= f.text_field :name %><br><br>
+    <%= f.label 'Cost $' %>
+    <%= f.text_field :cost %><br><br>
+    <%= f.label 'Notes' %>
+    <%= f.text_field :notes %><br><br>
+
+    <%= f.submit "Add Gift" %>
+  <% end %> 
+  </div>

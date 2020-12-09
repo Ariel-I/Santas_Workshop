@@ -1,5 +1,11 @@
 <div class='container'>
+  <% if @gift.errors.any? %>
+    <% @gift.errors.full_messages.each do |message| %>
+      <%= message %>
+    <% end %>
+  <% end %>
+  <br>
   <h2>Update Gift Information</h2>
 
   <%= render partial: "form", locals: {gift: @gift} %>
- </div>
+</div>

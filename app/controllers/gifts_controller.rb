@@ -3,17 +3,20 @@ class GiftsController < ApplicationController
     before_action :set_gift, only: [:show, :edit, :update, :destroy]
 
     def index
+      #binding.pry
       if params[:person_id]
         @person = current_user.people.find_by(id: params[:person_id])
         @gifts = @person.gifts
-      elsif params[:search_term]
-        if params[:search_term] = "expensive"
-          @gifts = current_user.gifts.most_expensive_gift
-        end 
       else
         @gifts = current_user.gifts
       end
     end 
+
+    def most_expensive_gift
+      @gifts = current_user.gifts.most_expensive_gift
+  
+      render :index
+    end
 
     def new
       @gift = current_user.gifts.new(person_id: params[:person_id])
